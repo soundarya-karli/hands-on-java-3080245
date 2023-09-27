@@ -37,10 +37,24 @@ public class Account {
     else{
       double newbal=balance+amount;
       setBalance(newbal);
+      System.out.println("Amount Deposited!");
+      DataSource.updateBalance(id,newbal);
     }
 
   }
-  public void withdraw(double amount){
+  public void withdraw(double amount)throws AmountException{
+    if(amount<0){
+      throw new AmountException("Invalid Amount!");
+    }
+    else if(amount>getBalance()){
+      throw new AmountException("Insufficient Balance!");
+    }
+    else{
+      double newbal=balance-amount;
+      setBalance(newbal);
+      System.out.println("Amount withdrawn!");
+      DataSource.updateBalance(id, newbal);
+    }
 
   }
   
