@@ -45,6 +45,8 @@ public class Menu {
       System.out.println("3: Check Balance");
       System.out.println("4: Exit");
       System.out.println("******************************");
+    
+    select=sc.nextInt();
       double amount=0;
       switch(select){
         case 1:System.out.println("How much would you like to deposite?");
@@ -71,7 +73,7 @@ public class Menu {
         System.out.println("Invalid Option. Try again!");
         break;
       }
-
     }
+    
   }
 }

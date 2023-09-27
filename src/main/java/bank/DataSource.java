@@ -64,11 +64,20 @@ public class DataSource {
     return acc;
   }
 
-  public static void main(String args[]){
+  public static void updateBalance(int aid, double bal){
+    String sql="update accounts set balance=? where id=?";
+    try(Connection conn=connect();
+    PreparedStatement state=conn.prepareStatement(sql)){
+      state.executeUpdate();
+    }catch(SQLException e){
+      e.printStackTrace();
+    }
+  }
+ /*  public static void main(String args[]){
     //connect();
     Customer cust=getCustomer("twest8o@friendfeed.com");
     System.out.println(cust.getName());
     Account acc=getAccount(cust.getAccountId());
     System.out.println(acc.getBalance());
-  }
+  }*/
 }
