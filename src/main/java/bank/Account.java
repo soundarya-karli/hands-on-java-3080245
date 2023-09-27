@@ -1,5 +1,7 @@
 package bank;
 
+import bank.Exceptions.AmountException;
+
 public class Account {
   private int id;
   private String type;
@@ -28,11 +30,18 @@ public class Account {
     this.balance = balance;
   }
 
-  public void deposite(double amount){
+  public void deposite(double amount)throws AmountException{
+    if(amount<1){
+      throw new AmountException("Invalid amount.");
+    }
+    else{
+      double newbal=balance+amount;
+      setBalance(newbal);
+    }
 
   }
   public void withdraw(double amount){
-    
+
   }
   
 }
